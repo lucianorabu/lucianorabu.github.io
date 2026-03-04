@@ -8,48 +8,53 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
     <style>
-        body { background-color: #0f0f0f; color: #e5e5e5; }
+        /* Inverted Color Palette */
+        body { background-color: #ffffff; color: #111111; }
+        
         .masonry-grid { column-count: 1; column-gap: 1.5rem; }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        @media (min-width: 1440px) { .masonry-grid { column-count: 4; } }
+
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
         
-        /* Accent Borders */
-        .bau-0 { border-top: 4px solid #2563eb; }
-        .bau-1 { border-top: 4px solid #dc2626; }
-        .bau-2 { border-top: 4px solid #facc15; }
-        .bau-3 { border-top: 4px solid #4b5563; }
+        /* Bauhaus Accent Borders - Stronger on White */
+        .bau-0 { border-top: 6px solid #2563eb; } /* Blue */
+        .bau-1 { border-top: 6px solid #dc2626; } /* Red */
+        .bau-2 { border-top: 6px solid #facc15; } /* Yellow */
+        .bau-3 { border-top: 6px solid #111111; } /* Black */
 
-        /* Custom Hover Effect for Links */
         .link-glitch:hover {
-            text-shadow: 2px 0 #2563eb, -2px 0 #dc2626;
-            letter-spacing: 0.05em;
+            text-shadow: 1.5px 0 #2563eb, -1.5px 0 #dc2626;
+            letter-spacing: 0.02em;
         }
+
+        .card-transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 <body class="antialiased font-mono">
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
-        <header class="w-full md:w-56 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-8 flex flex-col justify-between z-50 bg-[#0f0f0f]">
+        <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-200 p-6 flex flex-col justify-between z-50 bg-white">
             <div>
-                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic">LUCHO<br>RABU</h1>
-                <p class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-4">Front-end Dev</p>
+                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic text-black">LUCHO<br>RABU</h1>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-400 mb-10 font-bold underline decoration-blue-600 underline-offset-8">Front-end Systems</p>
                 
                 <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
-                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-blue-600 transition-colors text-neutral-600 border-b border-transparent hover:border-red-600 w-fit">CONTACT</a>
                 </nav>
             </div>
-            <div class="mt-10 text-[9px] text-neutral-700 tracking-tighter uppercase leading-tight">
-                Layout: Masonry v4<br>Logic: Hover_State<br>Status: Build_Live
+            <div class="mt-10 text-[9px] text-neutral-400 tracking-tighter uppercase leading-tight font-sans">
+                Grid_Engine: v5.0.0<br>Mode: Light_Cube<br>Status: Online
             </div>
         </header>
 
-        <main class="flex-1 md:ml-56 p-6 lg:p-10" x-data="portfolioData">
+        <main class="flex-1 md:ml-52 p-6 lg:p-10 bg-[#fafafa]" x-data="portfolioData">
             <div class="masonry-grid">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item p-6 flex flex-col transition-all duration-500 ease-in-out cursor-default"
+                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-neutral-200 shadow-sm"
                          x-data="{ 
                             activeImage: project.links[0].img, 
                             isHoveringLink: false,
@@ -58,11 +63,11 @@
                          @mouseenter="isHoveringCard = true"
                          @mouseleave="isHoveringCard = false; isHoveringLink = false"
                          :class="'bau-' + (index % 4)"
-                         :style="isHoveringCard ? 'background-color: #1e1e1e' : 'background-color: #161616'">
+                         :style="isHoveringCard ? 'background-color: #ffffff; border-color: #111111; transform: translateY(-4px); shadow: lg' : 'background-color: #f3f3f3'">
                         
                         <div class="mb-6">
-                            <span class="text-[8px] uppercase tracking-[0.3em] font-bold mb-2 block text-neutral-500" x-text="project.category"></span>
-                            <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase text-white" x-text="project.name"></h2>
+                            <span class="text-[7px] uppercase tracking-[0.4em] font-bold mb-2 block text-neutral-400" x-text="project.category"></span>
+                            <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase text-black leading-none" x-text="project.name"></h2>
                             
                             <ul class="space-y-3">
                                 <template x-for="link in project.links" :key="link.url">
@@ -71,8 +76,8 @@
                                            target="_blank" 
                                            @mouseenter="activeImage = link.img; isHoveringLink = true"
                                            @mouseleave="isHoveringLink = false"
-                                           class="flex items-center text-xs tracking-tight text-neutral-400 hover:text-white transition-all group link-glitch">
-                                            <span class="mr-2 text-neutral-700 group-hover:text-blue-500 font-bold">/</span>
+                                           class="flex items-center text-[11px] tracking-tight text-neutral-600 hover:text-black transition-all group link-glitch font-medium">
+                                            <span class="mr-2 text-neutral-300 group-hover:text-blue-600 font-bold">/</span>
                                             <span x-text="link.label" class="group-hover:translate-x-1 transition-transform inline-block"></span>
                                         </a>
                                     </li>
@@ -80,11 +85,11 @@
                             </ul>
                         </div>
 
-                        <div class="mt-auto pt-4">
-                            <div class="w-full aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden relative">
+                        <div class="mt-auto">
+                            <div class="w-full aspect-video bg-neutral-200 overflow-hidden relative border border-neutral-200">
                                 <img :src="activeImage" 
-                                     class="w-full h-full object-cover transition-all duration-700 ease-in-out"
-                                     :class="isHoveringLink ? 'grayscale-0 scale-105 opacity-100' : 'grayscale opacity-20 scale-100'"
+                                     class="w-full h-full object-cover transition-all duration-500 ease-out"
+                                     :class="isHoveringLink ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-30 scale-100'"
                                      :alt="project.name">
                             </div>
                         </div>
@@ -93,8 +98,8 @@
 
             </div>
 
-            <footer class="mt-20 py-8 text-[9px] tracking-[0.5em] text-neutral-800 uppercase text-center border-t border-neutral-900">
-                Lucho Rabu — Systems Engineering — 2026
+            <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-neutral-400 uppercase text-center border-t border-neutral-200">
+                Lucho Rabu // White Cube Edition // 2026
             </footer>
         </main>
     </div>
