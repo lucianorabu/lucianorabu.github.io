@@ -27,11 +27,11 @@
         
         <header class="w-full md:w-56 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-8 flex flex-col justify-between z-50 bg-[#0f0f0f]">
             <div>
-                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic">LUCHO<br>RABU</h1>
+                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1">LUCHO<br>RABU</h1>
                 <p class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-4">Front-end Dev</p>
                 
                 <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
-                    <a href="https://github.com/lucianorabu" target="_blank" class="block hover:text-white transition-colors border-b border-transparent hover:border-blue-500 w-fit">GITHUB</a>
+                    <!-- <a href="https://github.com/lucianorabu" target="_blank" class="block hover:text-white transition-colors border-b border-transparent hover:border-blue-500 w-fit">GITHUB</a> -->
                     <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
             </div>
@@ -40,7 +40,7 @@
             </div>
         </header>
 
-        <main class="flex-1 md:ml-56 p-6 lg:p-10" x-data="portfolioData">
+        <main class="flex-1 md:ml-56 p-6" x-data="portfolioData">
             <div class="masonry-grid">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
