@@ -10,28 +10,11 @@
     <style>
         body { background-color: #0a0a0a; color: #e5e5e5; overflow-x: hidden; }
         
-        /* Strong Primary Bauhaus Background */
         .animated-main {
-            background: linear-gradient(
-                -45deg, 
-                #1e3a8a, /* Deep Blue */
-                #991b1b, /* Deep Red */
-                #854d0e, /* Mustard Yellow */
-                #1e40af  /* Bright Blue */
-            );
+            background: linear-gradient(-45deg, #00a1ff, /* Deep Blue */ #ff7373, /* Deep Red */ #ffec81, /* Mustard Yellow */ #1e40af /* Bright Blue */);
             background-size: 400% 400%;
             animation: bauhaus-pulse 20s ease-in-out infinite;
             position: relative;
-        }
-
-        /* Overlay to keep the colors from being too distracting while maintaining strength */
-        .animated-main::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Darken slightly for readability */
-            pointer-events: none;
-            z-index: 0;
         }
 
         @keyframes bauhaus-pulse {
@@ -71,15 +54,12 @@
         
         <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between z-50 bg-[#0a0a0a]">
             <div>
-                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic text-white">LUCHO<br>RABU</h1>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-8">Front-end Systems</p>
+                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 text-white">LUCHO<br>RABU</h1>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-8">web dev</p>
                 
                 <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
                     <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
-            </div>
-            <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
-                Engine: Canvas_V2<br>State: Full_Color<br>Status: Running
             </div>
         </header>
 
