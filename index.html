@@ -8,7 +8,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
     <style>
-        body { background-color: #0a0a0a; color: #888888; }
+        body { background-color: #0a0a0a; color: #e5e5e5; }
         
         /* Masonry Grid Setup */
         .masonry-grid { column-count: 1; column-gap: 1.5rem; }
@@ -24,6 +24,7 @@
         .bau-2 { border-top: 4px solid #facc15; }
         .bau-3 { border-top: 4px solid #4b5563; }
 
+        /* Tech-Glitch Hover Effect */
         .link-glitch:hover {
             text-shadow: 1.5px 0 #2563eb, -1.5px 0 #dc2626;
             letter-spacing: 0.02em;
@@ -39,14 +40,14 @@
         <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between z-50 bg-[#0a0a0a]">
             <div>
                 <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic text-white">LUCHO<br>RABU</h1>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-600 mb-10 font-bold underline decoration-blue-500 underline-offset-8">Front-end Systems</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-8">Front-end Systems</p>
                 
                 <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
-                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-500 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
             </div>
             <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
-                Engine: Spotlight_v1<br>Active_Node: Hover_Invert<br>Status: Online
+                Engine: Spotlight_v2<br>State: Full_Readability<br>Status: Online
             </div>
         </header>
 
@@ -56,22 +57,22 @@
                 <template x-for="(project, index) in projects" :key="project.name">
                     <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-none"
                          x-data="{ 
+                            activeLink: project.links[0].url,
                             activeImage: project.links[0].img, 
-                            isHoveringLink: false,
                             isHoveringCard: false 
                          }"
                          @mouseenter="isHoveringCard = true"
-                         @mouseleave="isHoveringCard = false; isHoveringLink = false"
+                         @mouseleave="isHoveringCard = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
                          :class="'bau-' + (index % 4)"
-                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; border-color: #eee; transform: translateY(-4px);' : 'background-color: #121212; color: #888888;'">
+                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; border-color: #eee; transform: translateY(-4px);' : 'background-color: #121212; color: #e5e5e5;'">
                         
                         <div class="mb-4">
                             <span class="text-[7px] uppercase tracking-[0.4em] font-bold mb-2 block" 
-                                  :class="isHoveringCard ? 'text-neutral-400' : 'text-neutral-700'"
+                                  :class="isHoveringCard ? 'text-neutral-400' : 'text-neutral-600'"
                                   x-text="project.category"></span>
                             
                             <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase leading-none card-transition"
-                                :class="isHoveringCard ? 'text-black' : 'text-neutral-400'"
+                                :class="isHoveringCard ? 'text-black' : 'text-white'"
                                 x-text="project.name"></h2>
                             
                             <ul class="space-y-3">
@@ -79,12 +80,14 @@
                                     <li>
                                         <a :href="link.url" 
                                            target="_blank" 
-                                           @mouseenter="activeImage = link.img; isHoveringLink = true"
-                                           @mouseleave="isHoveringLink = false"
+                                           @mouseenter="activeImage = link.img; activeLink = link.url"
                                            class="flex items-center text-xs tracking-tight transition-all group link-glitch font-medium"
-                                           :class="isHoveringCard ? 'text-neutral-600 hover:text-black' : 'text-neutral-500 hover:text-white'">
-                                            <span class="mr-2 opacity-30 group-hover:opacity-100 group-hover:text-blue-600 font-bold">/</span>
-                                            <span x-text="link.label" class="group-hover:translate-x-1 transition-transform inline-block"></span>
+                                           :class="activeLink === link.url && isHoveringCard ? 'text-black translate-x-1' : (isHoveringCard ? 'text-neutral-400' : 'text-neutral-300')">
+                                            
+                                            <span class="mr-2 font-bold transition-colors"
+                                                  :class="activeLink === link.url ? 'text-blue-600 opacity-100' : 'opacity-20 text-neutral-500'">/</span>
+                                            
+                                            <span x-text="link.label" class="inline-block transition-transform"></span>
                                         </a>
                                     </li>
                                 </template>
@@ -93,10 +96,10 @@
 
                         <div class="mt-auto pt-4">
                             <div class="w-full aspect-video bg-black overflow-hidden relative border"
-                                 :class="isHoveringCard ? 'border-neutral-200' : 'border-neutral-900'">
+                                 :class="isHoveringCard ? 'border-neutral-200' : 'border-neutral-800'">
                                 <img :src="activeImage" 
-                                     class="w-full h-full object-cover transition-all duration-500 ease-out"
-                                     :class="isHoveringLink ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-20 scale-100'"
+                                     class="w-full h-full object-cover transition-all duration-700 ease-out"
+                                     :class="isHoveringCard ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-40 scale-100'"
                                      :alt="project.name">
                             </div>
                         </div>
