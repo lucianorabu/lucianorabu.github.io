@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUCIANO RABU | PORTFOLIO</title>
+    <title>LUCHO RABUFFETTI | PORTFOLIO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
     <style>
         body { background-color: #0f0f0f; color: #e5e5e5; }
-        .bauhaus-border { border: 1px solid #262626; }
-        .hover-bauhaus:hover { background-color: #1a1a1a; border-color: #3b82f6; }
+        /* Thin Bauhaus lines */
+        .grid-container { gap: 1px; background-color: #262626; border: 1px solid #262626; }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0f0f0f; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
-        <header class="w-full md:w-64 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-8 flex flex-col justify-between">
+        <header class="w-full md:w-56 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-6 flex flex-col justify-between z-50 bg-[#0f0f0f]">
             <div>
-                <h1 class="text-2xl font-black tracking-tighter leading-none mb-2">LUCIANO<br>RABU</h1>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-8 font-bold">Front-end Developer</p>
+                <h1 class="text-xl font-black tracking-tighter leading-none mb-1">LUCIANO<br>RABU</h1>
+                <p class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mb-8 font-bold">Front-end Dev</p>
+                
+                <nav class="space-y-3 text-[11px] tracking-widest font-bold uppercase">
+                    <a href="https://github.com/lucianorabu" target="_blank" class="block hover:text-blue-500 transition-colors">GITHUB</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-blue-500 transition-colors">CONTACT</a>
+                </nav>
             </div>
             
-            <nav class="space-y-2 text-sm font-medium">
-                <a href="https://github.com/lucianorabu" class="block hover:text-blue-500 transition-colors">GITHUB</a>
-                <a href="mailto:your-email@example.com" class="block hover:text-blue-500 transition-colors">CONTACT</a>
-            </nav>
+            <div class="hidden md:block">
+                <p class="text-[9px] text-neutral-600 leading-tight uppercase tracking-tighter">
+                    Bauhaus Grid v2.0<br>3-Column Utility
+                </p>
+            </div>
         </header>
 
-        <main class="flex-1 md:ml-64 p-8" x-data="portfolioData">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-neutral-800 border border-neutral-800">
+        <main class="flex-1 md:ml-56" x-data="portfolioData">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-container">
                 
                 <template x-for="project in projects" :key="project.name">
-                    <div class="bg-[#0f0f0f] p-8 flex flex-col justify-between min-h-[400px] transition-all duration-300">
+                    <div class="bg-[#0f0f0f] p-5 flex flex-col justify-between min-h-[450px] group transition-all duration-500">
                         
                         <div>
-                            <span class="text-[9px] uppercase tracking-[0.3em] text-blue-500 font-bold mb-4 block" x-text="project.category"></span>
-                            <h2 class="text-3xl font-bold tracking-tighter mb-6 uppercase" x-text="project.name"></h2>
+                            <span class="text-[8px] uppercase tracking-[0.3em] text-blue-500 font-bold mb-3 block" x-text="project.category"></span>
+                            <h2 class="text-xl font-bold tracking-tighter mb-5 uppercase border-b border-neutral-900 pb-2" x-text="project.name"></h2>
                             
-                            <ul class="space-y-3 mb-8">
+                            <ul class="space-y-1.5 mb-6">
                                 <template x-for="link in project.links" :key="link.url">
                                     <li>
-                                        <a :href="link.url" target="_blank" class="group flex items-center text-xs tracking-widest text-neutral-400 hover:text-white transition-all">
-                                            <span class="mr-2 text-neutral-700 group-hover:text-blue-500">/</span>
+                                        <a :href="link.url" target="_blank" class="flex items-start text-[10px] leading-tight tracking-wide text-neutral-400 hover:text-white transition-all">
+                                            <span class="mr-2 text-neutral-700">→</span>
                                             <span x-text="link.label"></span>
                                         </a>
                                     </li>
@@ -51,16 +61,21 @@
                             </ul>
                         </div>
 
-                        <div class="w-full h-32 bg-neutral-900 border border-neutral-800 grayscale hover:grayscale-0 transition-all overflow-hidden">
-                             <img :src="project.image" class="w-full h-full object-cover opacity-50 hover:opacity-100 transition-opacity">
+                        <div class="w-full h-40 bg-neutral-900 border border-neutral-800 overflow-hidden relative">
+                             <img :src="project.image" 
+                                  class="w-full h-full object-cover opacity-40 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                                  :alt="project.name">
+                             <div class="absolute bottom-0 left-0 p-2 bg-black/60 text-[8px] uppercase tracking-widest text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                Preview
+                             </div>
                         </div>
                     </div>
                 </template>
 
             </div>
 
-            <footer class="mt-20 py-8 border-t border-neutral-800 text-[10px] tracking-widest text-neutral-600 uppercase">
-                &copy; 2026 Luciano Rabu. No decoration. Only function.
+            <footer class="p-8 text-[9px] tracking-[0.4em] text-neutral-600 uppercase text-center border-t border-neutral-800">
+                Functional Minimalism &copy; 2026 RABU
             </footer>
         </main>
     </div>
