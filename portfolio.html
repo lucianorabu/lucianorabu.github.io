@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Assets - Alpine.js</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Portfolio Assets</title>
+    
     <script src="data.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
         body { font-family: sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; color: #333; }
         .project-group { margin-bottom: 60px; }
-        h2 { border-bottom: 2px solid #000; padding-bottom: 10px; text-transform: uppercase; }
+        h2 { border-bottom: 2px solid #000; padding-bottom: 10px; text-transform: uppercase; margin-top: 40px; }
         ul { list-style: none; padding: 0; }
         li { margin-bottom: 40px; border-left: 5px solid #eee; padding-left: 20px; }
         .label { font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 5px; }
         .url-text { color: #0066cc; text-decoration: none; font-family: monospace; font-size: 0.9em; word-break: break-all; }
         .url-text:hover { text-decoration: underline; }
-        .portfolio-img { display: block; margin-top: 15px; width: 100%; max-width:500px; height: auto; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .portfolio-img { display: block; margin-top: 15px; width:100%; max-width: 500px; height: auto; border: 1px solid #ddd; border-radius: 4px; }
     </style>
 </head>
+
 <body x-data="{ 
-    projects: portfolioData.projects,
+    projects: (typeof portfolioData !== 'undefined') ? portfolioData.projects : [],
     baseAssetUrl: 'https://lucianorabu.github.io/' 
 }">
 
     <h1>Client Portfolio</h1>
 
+    <template x-if="projects.length === 0">
+        <p style="color: red;">Error: data.js not found or portfolioData is empty.</p>
+    </template>
+
     <template x-for="project in projects" :key="project.name">
         <div class="project-group">
-            <h2 x-text="`${project.name} (${project.category})`"></h2>
+            <h2 x-text="project.name + ' (' + project.category + ')'"></h2>
             
             <ul>
-                <template x-for="link in link.links" :key="link.url">
+                <template x-for="item in project.links" :key="item.url">
                     <li>
-                        <span class="label" x-text="link.label"></span>
-                        <a class="url-text" :href="link.url" x-text="link.url"></a>
+                        <span class="label" x-text="item.label"></span>
+                        <a class="url-text" :href="item.url" x-text="item.url"></a>
                         
                         <img class="portfolio-img" 
-                             :src="baseAssetUrl + link.img" 
-                             :alt="link.label"
+                             :src="baseAssetUrl + item.img" 
+                             :alt="item.label"
                              loading="lazy">
                     </li>
                 </template>
