@@ -14,7 +14,7 @@ const portfolioData = {
         },
         {
             name: "Greenpeace",
-            category: "Environment",
+            category: "Advocacy / Campaign",
             links: [
                 { label: "Make Polluters Pay (UK)", url: "https://action.greenpeace.org.uk/make-polluters-pay", img: "assets/gp-mpp.png" },
                 { label: "Polluters Pay Pact", url: "https://www.greenpeace.org/international/campaigns/polluters-pay-pact/", img: "assets/gp-ppp.png" },
@@ -26,7 +26,7 @@ const portfolioData = {
         },
         {
             name: "ClientEarth",
-            category: "Fintech",
+            category: "Advocacy",
             links: [
                 { label: "Donation (DE)", url: "https://donate.clientearth.org/page/186068/donate/1?mode=DEMO&locale=de-DE", img: "assets/CE-donation-de.png" },
                 { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB", img: "assets/CE-donation-uk.png" }
@@ -34,7 +34,7 @@ const portfolioData = {
         },
         {
             name: "Christie's",
-            category: "Luxury",
+            category: "Auctions",
             links: [
                 { label: "Online Auction List", url: "https://onlineonly.christies.com/s/modern-collector/lots/3874", img: "assets/chr-list.png" },
                 { label: "Online Auction", url: "https://onlineonly.christies.com/s/modern-collector/tiffany-studios-1/289049", img: "assets/chr-item.png" },
@@ -51,7 +51,7 @@ const portfolioData = {
         },
         {
             name: "Labour Party",
-            category: "Politics",
+            category: "Campaign",
             links: [
                 { label: "2024 Manifesto", url: "https://labour.org.uk/change/", img: "assets/labour-manifesto.png" },
             ]
@@ -65,8 +65,8 @@ const portfolioData = {
             ]
         },
         {
-            name: "Campaigns",
-            category: "Advocacy",
+            name: "Advocacy",
+            category: "Others",
             links: [
                 { label: "Green New Deal Rising (old events map)", url: "https://www.gndrising.org/", img: "assets/gndr.png" },
                 { label: "wePlanet", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1", img: "assets/wePlanet.png" },
