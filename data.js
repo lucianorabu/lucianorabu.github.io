@@ -28,8 +28,8 @@ const portfolioData = {
             name: "ClientEarth",
             category: "Fintech",
             links: [
-                { label: "Donation (DE)", url: "https://donate.clientearth.org/page/186068/donate/1?mode=DEMO&locale=de-DE", img: "https://picsum.photos/seed/ce1/600/400" },
-                { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB", img: "https://picsum.photos/seed/ce2/600/400" }
+                { label: "Donation (DE)", url: "https://donate.clientearth.org/page/186068/donate/1?mode=DEMO&locale=de-DE", img: "assets/CE-donation-de.png" },
+                { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB", img: "assets/CE-donation-uk.png" }
             ]
         },
         {
