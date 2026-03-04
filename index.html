@@ -8,9 +8,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
     <style>
-        /* Inverted Color Palette */
-        body { background-color: #ffffff; color: #111111; }
+        body { background-color: #0a0a0a; color: #888888; }
         
+        /* Masonry Grid Setup */
         .masonry-grid { column-count: 1; column-gap: 1.5rem; }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
@@ -18,43 +18,43 @@
 
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
         
-        /* Bauhaus Accent Borders - Stronger on White */
-        .bau-0 { border-top: 6px solid #2563eb; } /* Blue */
-        .bau-1 { border-top: 6px solid #dc2626; } /* Red */
-        .bau-2 { border-top: 6px solid #facc15; } /* Yellow */
-        .bau-3 { border-top: 6px solid #111111; } /* Black */
+        /* Bauhaus Accent Borders */
+        .bau-0 { border-top: 4px solid #2563eb; }
+        .bau-1 { border-top: 4px solid #dc2626; }
+        .bau-2 { border-top: 4px solid #facc15; }
+        .bau-3 { border-top: 4px solid #4b5563; }
 
         .link-glitch:hover {
             text-shadow: 1.5px 0 #2563eb, -1.5px 0 #dc2626;
             letter-spacing: 0.02em;
         }
 
-        .card-transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 <body class="antialiased font-mono">
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
-        <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-200 p-6 flex flex-col justify-between z-50 bg-white">
+        <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between z-50 bg-[#0a0a0a]">
             <div>
-                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic text-black">LUCHO<br>RABU</h1>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-400 mb-10 font-bold underline decoration-blue-600 underline-offset-8">Front-end Systems</p>
+                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic text-white">LUCHO<br>RABU</h1>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-600 mb-10 font-bold underline decoration-blue-500 underline-offset-8">Front-end Systems</p>
                 
                 <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
-                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-blue-600 transition-colors text-neutral-600 border-b border-transparent hover:border-red-600 w-fit">CONTACT</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-500 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
             </div>
-            <div class="mt-10 text-[9px] text-neutral-400 tracking-tighter uppercase leading-tight font-sans">
-                Grid_Engine: v5.0.0<br>Mode: Light_Cube<br>Status: Online
+            <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
+                Engine: Spotlight_v1<br>Active_Node: Hover_Invert<br>Status: Online
             </div>
         </header>
 
-        <main class="flex-1 md:ml-52 p-6 lg:p-10 bg-[#fafafa]" x-data="portfolioData">
+        <main class="flex-1 md:ml-52 p-6 lg:p-10" x-data="portfolioData">
             <div class="masonry-grid">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-neutral-200 shadow-sm"
+                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-none"
                          x-data="{ 
                             activeImage: project.links[0].img, 
                             isHoveringLink: false,
@@ -63,11 +63,16 @@
                          @mouseenter="isHoveringCard = true"
                          @mouseleave="isHoveringCard = false; isHoveringLink = false"
                          :class="'bau-' + (index % 4)"
-                         :style="isHoveringCard ? 'background-color: #ffffff; border-color: #111111; transform: translateY(-4px); shadow: lg' : 'background-color: #f3f3f3'">
+                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; border-color: #eee; transform: translateY(-4px);' : 'background-color: #121212; color: #888888;'">
                         
-                        <div class="mb-6">
-                            <span class="text-[7px] uppercase tracking-[0.4em] font-bold mb-2 block text-neutral-400" x-text="project.category"></span>
-                            <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase text-black leading-none" x-text="project.name"></h2>
+                        <div class="mb-4">
+                            <span class="text-[7px] uppercase tracking-[0.4em] font-bold mb-2 block" 
+                                  :class="isHoveringCard ? 'text-neutral-400' : 'text-neutral-700'"
+                                  x-text="project.category"></span>
+                            
+                            <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase leading-none card-transition"
+                                :class="isHoveringCard ? 'text-black' : 'text-neutral-400'"
+                                x-text="project.name"></h2>
                             
                             <ul class="space-y-3">
                                 <template x-for="link in project.links" :key="link.url">
@@ -76,8 +81,9 @@
                                            target="_blank" 
                                            @mouseenter="activeImage = link.img; isHoveringLink = true"
                                            @mouseleave="isHoveringLink = false"
-                                           class="flex items-center text-[11px] tracking-tight text-neutral-600 hover:text-black transition-all group link-glitch font-medium">
-                                            <span class="mr-2 text-neutral-300 group-hover:text-blue-600 font-bold">/</span>
+                                           class="flex items-center text-xs tracking-tight transition-all group link-glitch font-medium"
+                                           :class="isHoveringCard ? 'text-neutral-600 hover:text-black' : 'text-neutral-500 hover:text-white'">
+                                            <span class="mr-2 opacity-30 group-hover:opacity-100 group-hover:text-blue-600 font-bold">/</span>
                                             <span x-text="link.label" class="group-hover:translate-x-1 transition-transform inline-block"></span>
                                         </a>
                                     </li>
@@ -85,11 +91,12 @@
                             </ul>
                         </div>
 
-                        <div class="mt-auto">
-                            <div class="w-full aspect-video bg-neutral-200 overflow-hidden relative border border-neutral-200">
+                        <div class="mt-auto pt-4">
+                            <div class="w-full aspect-video bg-black overflow-hidden relative border"
+                                 :class="isHoveringCard ? 'border-neutral-200' : 'border-neutral-900'">
                                 <img :src="activeImage" 
                                      class="w-full h-full object-cover transition-all duration-500 ease-out"
-                                     :class="isHoveringLink ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-30 scale-100'"
+                                     :class="isHoveringLink ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-20 scale-100'"
                                      :alt="project.name">
                             </div>
                         </div>
@@ -98,8 +105,8 @@
 
             </div>
 
-            <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-neutral-400 uppercase text-center border-t border-neutral-200">
-                Lucho Rabu // White Cube Edition // 2026
+            <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-neutral-800 uppercase text-center border-t border-neutral-900">
+                Lucho Rabu // Design Systems // 2026
             </footer>
         </main>
     </div>
