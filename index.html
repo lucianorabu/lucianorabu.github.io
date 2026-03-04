@@ -57,7 +57,7 @@
                 </nav>
             </div>
             <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
-                Engine: Mobile_Logic_v1<br>Input: Tap_to_Preview<br>Status: Running
+                Engine: Hybrid_Input_v2<br>State: Smart_Context<br>Status: Running
             </div>
         </header>
 
@@ -91,7 +91,7 @@
                                     <li>
                                         <a :href="link.url" 
                                            target="_blank" 
-                                           @click.prevent="activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true; isHoveringCard = true"
+                                           @click="if ($event.pointerType === 'touch') { $event.preventDefault(); activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true; isHoveringCard = true; }"
                                            @mouseenter="activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true"
                                            @mouseleave="isSpecificLinkHovered = false"
                                            class="flex items-center tracking-tight transition-all group link-glitch font-medium text-xs"
@@ -128,7 +128,7 @@
             </div>
 
             <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-white/20 uppercase text-center relative z-10">
-                Lucho Rabu // Studio_2026 // Mobile_Enhanced
+                Lucho Rabu // Studio_2026 // Hybrid_Interaction_Enabled
             </footer>
         </main>
     </div>
