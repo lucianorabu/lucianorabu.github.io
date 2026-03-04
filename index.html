@@ -10,7 +10,6 @@
     <style>
         body { background-color: #0a0a0a; color: #e5e5e5; }
         
-        /* Masonry Grid Setup */
         .masonry-grid { column-count: 1; column-gap: 1.5rem; }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
@@ -18,13 +17,11 @@
 
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
         
-        /* Bauhaus Accent Borders */
         .bau-0 { border-top: 4px solid #2563eb; }
         .bau-1 { border-top: 4px solid #dc2626; }
         .bau-2 { border-top: 4px solid #facc15; }
         .bau-3 { border-top: 4px solid #4b5563; }
 
-        /* Tech-Glitch Hover Effect */
         .link-glitch:hover {
             text-shadow: 1.5px 0 #2563eb, -1.5px 0 #dc2626;
             letter-spacing: 0.02em;
@@ -47,7 +44,7 @@
                 </nav>
             </div>
             <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
-                Engine: Spotlight_v2<br>State: Full_Readability<br>Status: Online
+                Engine: Spotlight_v3<br>State: Zoom_on_Hover<br>Status: Live
             </div>
         </header>
 
@@ -55,16 +52,17 @@
             <div class="masonry-grid">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-none"
+                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent"
                          x-data="{ 
                             activeLink: project.links[0].url,
                             activeImage: project.links[0].img, 
-                            isHoveringCard: false 
+                            isHoveringCard: false,
+                            isSpecificLinkHovered: false
                          }"
                          @mouseenter="isHoveringCard = true"
-                         @mouseleave="isHoveringCard = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
+                         @mouseleave="isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
                          :class="'bau-' + (index % 4)"
-                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; border-color: #eee; transform: translateY(-4px);' : 'background-color: #121212; color: #e5e5e5;'">
+                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; transform: translateY(-4px);' : 'background-color: #121212; color: #e5e5e5;'">
                         
                         <div class="mb-4">
                             <span class="text-[7px] uppercase tracking-[0.4em] font-bold mb-2 block" 
@@ -80,7 +78,8 @@
                                     <li>
                                         <a :href="link.url" 
                                            target="_blank" 
-                                           @mouseenter="activeImage = link.img; activeLink = link.url"
+                                           @mouseenter="activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true"
+                                           @mouseleave="isSpecificLinkHovered = false"
                                            class="flex items-center text-xs tracking-tight transition-all group link-glitch font-medium"
                                            :class="activeLink === link.url && isHoveringCard ? 'text-black translate-x-1' : (isHoveringCard ? 'text-neutral-400' : 'text-neutral-300')">
                                             
@@ -99,7 +98,11 @@
                                  :class="isHoveringCard ? 'border-neutral-200' : 'border-neutral-800'">
                                 <img :src="activeImage" 
                                      class="w-full h-full object-cover transition-all duration-700 ease-out"
-                                     :class="isHoveringCard ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-40 scale-100'"
+                                     :class="{
+                                        'grayscale opacity-40 scale-100': !isHoveringCard,
+                                        'grayscale-0 opacity-100 scale-100': isHoveringCard && !isSpecificLinkHovered,
+                                        'grayscale-0 opacity-100 scale-110': isSpecificLinkHovered
+                                     }"
                                      :alt="project.name">
                             </div>
                         </div>
