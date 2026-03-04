@@ -18,8 +18,8 @@ const portfolioData = {
             links: [
                 { label: "Make Polluters Pay (UK)", url: "https://action.greenpeace.org.uk/make-polluters-pay", img: "assets/gp-mpp.png" },
                 { label: "Polluters Pay Pact", url: "https://www.greenpeace.org/international/campaigns/polluters-pay-pact/", img: "assets/gp-ppp.png" },
-                { label: "Microplastics", url: "https://action.greenpeace.org.uk/microplastics", img: "assets/gp-microplastics.png" },
-                { label: "Postcard", url: "https://act.greenpeace.org/page/183797/action/1?mode=DEMO", img: "assets/postcard.png" },
+                { label: "Microplastics", url: "https://action.greenpeace.org.uk/microplastics", img: "assets/gp-miocroplastics.png" },
+                { label: "Postcard", url: "https://act.greenpeace.org/page/183797/action/1?mode=DEMO", img: "assets/gp-postcard.png" },
                 { label: "Share Pages", url: "https://act.greenpeace.org/page/164438/data/1?mode=DEMO", img: "assets/gp-share.png" },
                 { label: "Social Storm", url: "https://act.greenpeace.org/page/164284/data/1?mode=DEMO", img: "assets/gp-share.png" },
             ]
