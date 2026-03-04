@@ -1,96 +1,75 @@
+// data.js
 const portfolioData = {
     projects: [
         {
             name: "Young Women's Trust",
             category: "Advocacy",
-            image: "assets/ywt.webp",
             links: [
-                { label: "Invite your MP", url: "https://action.youngwomenstrust.org/page/180421/action/1?mode=DEMO" },
-                { label: "Manifesto", url: "https://action.youngwomenstrust.org/page/151072/petition/1?mode=DEMO" },
-                { label: "Poll Petition", url: "https://action.youngwomenstrust.org/page/187096/petition/1?mode=DEMO&poll=1" },
-                { label: "Quiz", url: "https://action.youngwomenstrust.org/page/160186/survey/1?mode=DEMO" },
-                { label: "Action Centre", url: "https://action.youngwomenstrust.org/page/150795/subscribe/1?mode=DEMO" }
+                { label: "Invite your MP", url: "https://action.youngwomenstrust.org/page/180421/action/1?mode=DEMO", img: "https://picsum.photos/seed/ywt1/600/400" },
+                { label: "Manifesto", url: "https://action.youngwomenstrust.org/page/151072/petition/1?mode=DEMO", img: "https://picsum.photos/seed/ywt2/600/400" },
+                { label: "Poll Petition", url: "https://action.youngwomenstrust.org/page/187096/petition/1?mode=DEMO&poll=1", img: "https://picsum.photos/seed/ywt3/600/400" },
+                { label: "Quiz", url: "https://action.youngwomenstrust.org/page/160186/survey/1?mode=DEMO", img: "https://picsum.photos/seed/ywt4/600/400" },
+                { label: "Action Centre", url: "https://action.youngwomenstrust.org/page/150795/subscribe/1?mode=DEMO", img: "https://picsum.photos/seed/ywt5/600/400" }
             ]
         },
         {
             name: "Greenpeace",
-            category: "Environmental",
-            image: "assets/greenpeace.webp",
+            category: "Environment",
             links: [
-                { label: "Make Polluters Pay (UK)", url: "https://action.greenpeace.org.uk/make-polluters-pay" },
-                { label: "Polluters Pay Pact (Global)", url: "https://www.greenpeace.org/international/campaigns/polluters-pay-pact/" },
-                { label: "Microplastics Petition", url: "https://action.greenpeace.org.uk/microplastics" },
-                { label: "Postcard Action", url: "https://act.greenpeace.org/page/183797/action/1?mode=DEMO" },
-                { label: "Share pages", url: "https://act.greenpeace.org/page/164438/data/1?mode=DEMO" },
-                { label: "Social Storm", url: "https://act.greenpeace.org/page/164284/data/1?mode=DEMO" }
-            ]
-        },
-        {
-            name: "Labour Party",
-            category: "Political",
-            image: "assets/labour.webp",
-            links: [
-                { label: "2024 Manifesto", url: "https://labour.org.uk/change/" }
+                { label: "Make Polluters Pay (UK)", url: "https://action.greenpeace.org.uk/make-polluters-pay", img: "https://picsum.photos/seed/gp1/600/400" },
+                { label: "Polluters Pay Pact", url: "https://www.greenpeace.org/international/campaigns/polluters-pay-pact/", img: "https://picsum.photos/seed/gp2/600/400" },
+                { label: "Microplastics", url: "https://action.greenpeace.org.uk/microplastics", img: "https://picsum.photos/seed/gp3/600/400" },
+                { label: "Postcard", url: "https://act.greenpeace.org/page/183797/action/1?mode=DEMO", img: "https://picsum.photos/seed/gp4/600/400" },
+                { label: "Share Pages", url: "https://act.greenpeace.org/page/164438/data/1?mode=DEMO", img: "https://picsum.photos/seed/gp5/600/400" },
+                { label: "Social Storm", url: "https://act.greenpeace.org/page/164284/data/1?mode=DEMO", img: "https://picsum.photos/seed/gp6/600/400" }
             ]
         },
         {
             name: "ClientEarth",
-            category: "Environmental / Fintech",
-            image: "assets/clientearth.webp",
+            category: "Fintech",
             links: [
-                { label: "Donation (DE - Ongoing)", url: "https://donate.clientearth.org/page/186068/donate/1?mode=DEMO&locale=de-DE" },
-                { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB" }
+                { label: "Donation (DE)", url: "https://donate.clientearth.org/page/186068/donate/1?mode=DEMO&locale=de-DE", img: "https://picsum.photos/seed/ce1/600/400" },
+                { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB", img: "https://picsum.photos/seed/ce2/600/400" }
             ]
         },
         {
             name: "Christie's",
-            category: "E-Commerce / Arts",
-            image: "assets/christies.webp",
+            category: "Luxury",
             links: [
-                { label: "Modern Collector", url: "https://onlineonly.christies.com/s/modern-collector/lots/3874" },
-                { label: "Tiffany Studios", url: "https://onlineonly.christies.com/s/modern-collector/tiffany-studios-1/289049" }
+                { label: "Modern Collector", url: "https://onlineonly.christies.com/s/modern-collector/lots/3874", img: "https://picsum.photos/seed/ch1/600/400" },
+                { label: "Tiffany Studios", url: "https://onlineonly.christies.com/s/modern-collector/tiffany-studios-1/289049", img: "https://picsum.photos/seed/ch2/600/400" }
             ]
         },
         {
             name: "Guide Dogs UK",
             category: "Advocacy",
-            image: "assets/guidedogs.webp",
             links: [
-                { label: "Quiz", url: "https://act.guidedogs.org.uk/page/186862/survey/1?mode=DEMO" },
-                { label: "Signup", url: "https://act.guidedogs.org.uk/page/146531/petition/1?mode=DEMO" },
-                { label: "Email your MP", url: "https://act.guidedogs.org.uk/page/146448/action/1?mode=DEMO" }
+                { label: "Quiz", url: "https://act.guidedogs.org.uk/page/186862/survey/1?mode=DEMO", img: "https://picsum.photos/seed/gd1/600/400" },
+                { label: "Signup", url: "https://act.guidedogs.org.uk/page/146531/petition/1?mode=DEMO", img: "https://picsum.photos/seed/gd2/600/400" },
+                { label: "Email MP", url: "https://act.guidedogs.org.uk/page/146448/action/1?mode=DEMO", img: "https://picsum.photos/seed/gd3/600/400" }
             ]
         },
         {
-            name: "Inmobiliaria masM2",
-            category: "Real Estate",
-            image: "assets/masm2.webp",
+            name: "Labour Party",
+            category: "Politics",
             links: [
-                { label: "Corporate Site (Argentina)", url: "https://www.masm2.com/" }
+                { label: "2024 Manifesto", url: "https://labour.org.uk/change/", img: "https://picsum.photos/seed/labour/600/400" }
             ]
         },
         {
-            name: "Pilay Inmobiliaria",
-            category: "Real Estate",
-            image: "assets/pilay.webp",
+            name: "Real Estate",
+            category: "Commercial",
             links: [
-                { label: "Corporate Site", url: "https://www.pilayinmobiliaria.com/" }
+                { label: "masM2 (Argentina)", url: "https://www.masm2.com/", img: "https://picsum.photos/seed/mas/600/400" },
+                { label: "Pilay Inmobiliaria", url: "https://www.pilayinmobiliaria.com/", img: "https://picsum.photos/seed/pil/600/400" }
             ]
         },
         {
-            name: "Green New Deal Rising",
-            category: "Political / Environment",
-            image: "assets/gndr.webp",
+            name: "Campaigns",
+            category: "Advocacy",
             links: [
-                { label: "Events Map - Take Action", url: "https://www.gndrising.org/" }
-            ]
-        },
-        {
-            name: "wePlanet",
-            category: "Campaigning",
-            image: "assets/weplanet.webp",
-            links: [
-                { label: "MSC Campaign", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1" }
+                { label: "Green New Deal Rising", url: "https://www.gndrising.org/", img: "https://picsum.photos/seed/gnd/600/400" },
+                { label: "wePlanet", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1", img: "https://picsum.photos/seed/wep/600/400" }
             ]
         }
     ]
