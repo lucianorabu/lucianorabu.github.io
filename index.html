@@ -3,88 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUCHO RABUFFETTI | PORTFOLIO</title>
+    <title>LUCHO RABU | PORTFOLIO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
     <style>
         body { background-color: #0f0f0f; color: #e5e5e5; }
-        
-        /* Masonry Layout Logic */
-        .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem;
-        }
+        .masonry-grid { column-count: 1; column-gap: 1.5rem; }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
-
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Bauhaus Accent Colors */
-        .bg-bauhaus-blue { border-top: 4px solid #2563eb; }
-        .bg-bauhaus-red { border-top: 4px solid #dc2626; }
-        .bg-bauhaus-yellow { border-top: 4px solid #facc15; }
-        .bg-bauhaus-slate { border-top: 4px solid #4b5563; }
-
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: #444; }
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        
+        /* Bauhaus Colors */
+        .bau-0 { border-top: 4px solid #2563eb; }
+        .bau-1 { border-top: 4px solid #dc2626; }
+        .bau-2 { border-top: 4px solid #facc15; }
+        .bau-3 { border-top: 4px solid #4b5563; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased font-mono">
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
         <header class="w-full md:w-56 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-8 flex flex-col justify-between z-50 bg-[#0f0f0f]">
             <div>
-                <h1 class="text-2xl font-black tracking-tighter leading-none mb-1">LUCIANO<br>RABU</h1>
-                <p class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold">Front-end Dev</p>
+                <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 italic">LUCHO<br>RABU</h1>
+                <p class="text-[9px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-4">Front-end Dev</p>
                 
-                <nav class="space-y-4 text-[11px] tracking-widest font-bold uppercase">
-                    <a href="https://github.com/lucianorabu" target="_blank" class="block hover:text-white transition-colors">GITHUB</a>
-                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400">CONTACT</a>
+                <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
+                    <a href="https://github.com/lucianorabu" target="_blank" class="block hover:text-white transition-colors border-b border-transparent hover:border-blue-500 w-fit">GITHUB</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
             </div>
-            <div class="mt-10 text-[9px] text-neutral-600 tracking-tighter uppercase font-mono">
-                System: Masonry v3<br>Status: Active
+            <div class="mt-10 text-[9px] text-neutral-700 tracking-tighter uppercase leading-tight">
+                Layout: Masonry v3<br>System: Alpine.js<br>Status: Build_Live
             </div>
         </header>
 
         <main class="flex-1 md:ml-56 p-6 lg:p-10" x-data="portfolioData">
-            
             <div class="masonry-grid">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item bg-[#161616] p-6 flex flex-col transition-all duration-300 hover:bg-[#1c1c1c]"
-                         :class="{
-                            'bg-bauhaus-blue': index % 4 === 0,
-                            'bg-bauhaus-red': index % 4 === 1,
-                            'bg-bauhaus-yellow': index % 4 === 2,
-                            'bg-bauhaus-slate': index % 4 === 3
-                         }">
+                    <div class="masonry-item bg-[#161616] p-6 flex flex-col transition-all duration-300"
+                         x-data="{ activeImage: project.links[0].img }"
+                         :class="'bau-' + (index % 4)">
                         
                         <div class="mb-6">
                             <span class="text-[8px] uppercase tracking-[0.3em] font-bold mb-2 block text-neutral-500" x-text="project.category"></span>
-                            <h2 class="text-xl font-bold tracking-tighter mb-4 uppercase leading-none" x-text="project.name"></h2>
+                            <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase text-white" x-text="project.name"></h2>
                             
                             <ul class="space-y-2">
                                 <template x-for="link in project.links" :key="link.url">
                                     <li>
-                                        <a :href="link.url" target="_blank" class="flex items-start text-[10px] tracking-wide text-neutral-400 hover:text-white transition-all group">
-                                            <span class="mr-2 text-neutral-700 group-hover:text-blue-500">→</span>
-                                            <span x-text="link.label"></span>
+                                        <a :href="link.url" 
+                                           target="_blank" 
+                                           @mouseenter="activeImage = link.img"
+                                           class="flex items-start text-[10px] tracking-wide text-neutral-400 hover:text-white transition-all group">
+                                            <span class="mr-2 text-neutral-700 group-hover:text-blue-500 font-bold">/</span>
+                                            <span x-text="link.label" class="group-hover:translate-x-1 transition-transform inline-block"></span>
                                         </a>
                                     </li>
                                 </template>
                             </ul>
                         </div>
 
-                        <div class="mt-auto pt-4">
-                            <div class="w-full bg-neutral-900 border border-neutral-800 overflow-hidden">
-                                <img :src="project.image" 
-                                     class="w-full object-cover opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700"
+                        <div class="mt-auto pt-6 border-t border-neutral-800">
+                            <div class="w-full aspect-video bg-neutral-900 border border-neutral-800 overflow-hidden relative">
+                                <img :src="activeImage" 
+                                     class="w-full h-full object-cover grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                                      :alt="project.name">
                             </div>
                         </div>
@@ -93,8 +79,8 @@
 
             </div>
 
-            <footer class="mt-10 py-8 text-[9px] tracking-[0.5em] text-neutral-700 uppercase text-center">
-                Built by Rabu &copy; 2026
+            <footer class="mt-20 py-8 text-[9px] tracking-[0.5em] text-neutral-800 uppercase text-center border-t border-neutral-900">
+                Lucho Rabu — Systems Engineering — 2026
             </footer>
         </main>
     </div>
