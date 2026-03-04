@@ -3,51 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front-End Portfolio</title>
+    <title>LUCIANO RABU | PORTFOLIO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="data.js"></script>
+    <style>
+        body { background-color: #0f0f0f; color: #e5e5e5; }
+        .bauhaus-border { border: 1px solid #262626; }
+        .hover-bauhaus:hover { background-color: #1a1a1a; border-color: #3b82f6; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 leading-relaxed">
+<body class="antialiased">
 
-    <header class="bg-white border-b border-slate-200 py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h1 class="text-5xl font-black tracking-tight mb-4">Front-End Developer <span class="text-blue-600">&</span> Designer</h1>
-            <p class="text-xl text-slate-600 max-w-2xl">Specializing in high-impact campaign pages for global NGOs, luxury brands, and political movements.</p>
-        </div>
-    </header>
-
-    <main class="max-w-5xl mx-auto px-6 py-16" x-data="portfolioData">
+    <div class="flex flex-col md:flex-row min-h-screen">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <template x-for="project in projects" :key="project.name">
-                <div class="group">
-                    <div class="aspect-video bg-slate-200 rounded-lg overflow-hidden mb-4 shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
-                        <img :src="project.image" :alt="project.name" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                    </div>
-                    
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-1" x-text="project.category"></p>
-                            <h3 class="text-xl font-bold mb-2" x-text="project.name"></h3>
-                            <div class="flex gap-2 mb-4">
-                                <template x-for="tag in project.tags">
-                                    <span class="text-[10px] bg-slate-200 px-2 py-0.5 rounded text-slate-700 font-medium" x-text="tag"></span>
-                                </template>
-                            </div>
-                        </div>
-                        <a :href="project.url" target="_blank" class="bg-slate-900 text-white p-2 rounded-full hover:bg-blue-600 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </template>
-        </div>
-    </main>
+        <header class="w-full md:w-64 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-800 p-8 flex flex-col justify-between">
+            <div>
+                <h1 class="text-2xl font-black tracking-tighter leading-none mb-2">LUCIANO<br>RABU</h1>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-8 font-bold">Front-end Developer</p>
+            </div>
+            
+            <nav class="space-y-2 text-sm font-medium">
+                <a href="https://github.com/lucianorabu" class="block hover:text-blue-500 transition-colors">GITHUB</a>
+                <a href="mailto:your-email@example.com" class="block hover:text-blue-500 transition-colors">CONTACT</a>
+            </nav>
+        </header>
 
-    <footer class="border-t border-slate-200 py-10 text-center text-slate-400 text-sm">
-        Built with Alpine.js & Tailwind CSS. Hosted on GitHub Pages.
-    </footer>
+        <main class="flex-1 md:ml-64 p-8" x-data="portfolioData">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-neutral-800 border border-neutral-800">
+                
+                <template x-for="project in projects" :key="project.name">
+                    <div class="bg-[#0f0f0f] p-8 flex flex-col justify-between min-h-[400px] transition-all duration-300">
+                        
+                        <div>
+                            <span class="text-[9px] uppercase tracking-[0.3em] text-blue-500 font-bold mb-4 block" x-text="project.category"></span>
+                            <h2 class="text-3xl font-bold tracking-tighter mb-6 uppercase" x-text="project.name"></h2>
+                            
+                            <ul class="space-y-3 mb-8">
+                                <template x-for="link in project.links" :key="link.url">
+                                    <li>
+                                        <a :href="link.url" target="_blank" class="group flex items-center text-xs tracking-widest text-neutral-400 hover:text-white transition-all">
+                                            <span class="mr-2 text-neutral-700 group-hover:text-blue-500">/</span>
+                                            <span x-text="link.label"></span>
+                                        </a>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+
+                        <div class="w-full h-32 bg-neutral-900 border border-neutral-800 grayscale hover:grayscale-0 transition-all overflow-hidden">
+                             <img :src="project.image" class="w-full h-full object-cover opacity-50 hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+
+            <footer class="mt-20 py-8 border-t border-neutral-800 text-[10px] tracking-widest text-neutral-600 uppercase">
+                &copy; 2026 Luciano Rabu. No decoration. Only function.
+            </footer>
+        </main>
+    </div>
 
 </body>
 </html>
