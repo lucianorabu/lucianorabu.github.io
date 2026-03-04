@@ -10,21 +10,28 @@
     <style>
         body { background-color: #0a0a0a; color: #e5e5e5; overflow-x: hidden; }
         
-        /* Animated Primary Color Background */
+        /* Strong Primary Bauhaus Background */
         .animated-main {
             background: linear-gradient(
                 -45deg, 
-                #0a0a0a, 
-                #0a0a0a, 
-                #1e3a8a33, /* Bauhaus Blue (low opacity) */
-                #0a0a0a, 
-                #991b1b33, /* Bauhaus Red (low opacity) */
-                #0a0a0a, 
-                #854d0e33, /* Bauhaus Yellow (low opacity) */
-                #0a0a0a
+                #1e3a8a, /* Deep Blue */
+                #991b1b, /* Deep Red */
+                #854d0e, /* Mustard Yellow */
+                #1e40af  /* Bright Blue */
             );
             background-size: 400% 400%;
-            animation: bauhaus-pulse 30s ease infinite;
+            animation: bauhaus-pulse 20s ease-in-out infinite;
+            position: relative;
+        }
+
+        /* Overlay to keep the colors from being too distracting while maintaining strength */
+        .animated-main::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Darken slightly for readability */
+            pointer-events: none;
+            z-index: 0;
         }
 
         @keyframes bauhaus-pulse {
@@ -33,24 +40,29 @@
             100% { background-position: 0% 50%; }
         }
 
-        .masonry-grid { column-count: 1; column-gap: 1.5rem; }
+        .masonry-grid { 
+            position: relative; 
+            z-index: 10; 
+            column-count: 1; 
+            column-gap: 1.5rem; 
+        }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         @media (min-width: 1440px) { .masonry-grid { column-count: 4; } }
 
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
         
-        .bau-0 { border-top: 4px solid #2563eb; }
-        .bau-1 { border-top: 4px solid #dc2626; }
-        .bau-2 { border-top: 4px solid #facc15; }
-        .bau-3 { border-top: 4px solid #4b5563; }
+        /* Bauhaus Accent Borders */
+        .bau-0 { border-top: 5px solid #2563eb; }
+        .bau-1 { border-top: 5px solid #dc2626; }
+        .bau-2 { border-top: 5px solid #facc15; }
+        .bau-3 { border-top: 5px solid #ffffff; }
 
         .link-glitch:hover {
-            text-shadow: 1.5px 0 #2563eb, -1.5px 0 #dc2626;
-            letter-spacing: 0.02em;
+            text-shadow: 2px 0 #2563eb, -2px 0 #dc2626;
         }
 
-        .card-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-transition { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
     </style>
 </head>
 <body class="antialiased font-mono">
@@ -67,15 +79,15 @@
                 </nav>
             </div>
             <div class="mt-10 text-[9px] text-neutral-800 tracking-tighter uppercase leading-tight font-sans">
-                Engine: Spotlight_v4<br>Canvas: RGB_Pulse<br>Status: Render_Live
+                Engine: Canvas_V2<br>State: Full_Color<br>Status: Running
             </div>
         </header>
 
-        <main class="flex-1 md:ml-52 p-6 lg:p-10 animated-main" x-data="portfolioData">
-            <div class="masonry-grid">
+        <main class="flex-1 md:ml-52 p-6 lg:p-10 animated-main">
+            <div class="masonry-grid" x-data="portfolioData">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-2xl"
+                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-xl"
                          x-data="{ 
                             activeLink: project.links[0].url,
                             activeImage: project.links[0].img, 
@@ -85,10 +97,10 @@
                          @mouseenter="isHoveringCard = true"
                          @mouseleave="isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
                          :class="'bau-' + (index % 4)"
-                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; transform: translateY(-8px); shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);' : 'background-color: #121212; color: #e5e5e5;'">
+                         :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; transform: translateY(-10px) scale(1.02);' : 'background-color: #121212; color: #e5e5e5;'">
                         
                         <div class="mb-4">
-                            <span class="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block transition-colors" 
+                            <span class="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block" 
                                   :class="isHoveringCard ? 'text-neutral-400' : 'text-neutral-600'"
                                   x-text="project.category"></span>
                             
@@ -104,10 +116,10 @@
                                            @mouseenter="activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true"
                                            @mouseleave="isSpecificLinkHovered = false"
                                            class="flex items-center tracking-tight transition-all group link-glitch font-medium text-xs"
-                                           :class="activeLink === link.url && isHoveringCard ? 'text-black translate-x-1' : (isHoveringCard ? 'text-neutral-400' : 'text-neutral-300')">
+                                           :class="activeLink === link.url && isHoveringCard ? 'text-black translate-x-2' : (isHoveringCard ? 'text-neutral-400' : 'text-neutral-400')">
                                             
                                             <span class="mr-2 font-bold transition-colors"
-                                                  :class="activeLink === link.url ? 'text-blue-600 opacity-100' : 'opacity-20 text-neutral-500'">/</span>
+                                                  :class="activeLink === link.url ? 'text-blue-600 opacity-100' : 'opacity-20'">/</span>
                                             
                                             <span x-text="link.label" class="inline-block transition-transform"></span>
                                         </a>
@@ -118,7 +130,7 @@
 
                         <div class="mt-auto pt-4">
                             <div class="w-full aspect-video bg-black overflow-hidden relative border card-transition"
-                                 :class="isHoveringCard ? 'border-neutral-200' : 'border-neutral-800'">
+                                 :class="isHoveringCard ? 'border-neutral-200 shadow-inner' : 'border-neutral-800'">
                                 <img :src="activeImage" 
                                      class="w-full h-full object-cover transition-all duration-700 ease-out"
                                      :class="{
@@ -134,8 +146,8 @@
 
             </div>
 
-            <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-neutral-800 uppercase text-center">
-                Lucho Rabu // Design Systems // 2026
+            <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-white/20 uppercase text-center relative z-10">
+                Lucho Rabu // Studio_2026 // RGB_Systems
             </footer>
         </main>
     </div>
