@@ -5,11 +5,11 @@ const portfolioData = {
             name: "Young Women's Trust",
             category: "Advocacy",
             links: [
-                { label: "Invite your MP", url: "https://action.youngwomenstrust.org/page/180421/action/1?mode=DEMO", img: "https://picsum.photos/seed/ywt1/600/400" },
-                { label: "Manifesto", url: "https://action.youngwomenstrust.org/page/151072/petition/1?mode=DEMO", img: "https://picsum.photos/seed/ywt2/600/400" },
-                { label: "Poll Petition", url: "https://action.youngwomenstrust.org/page/187096/petition/1?mode=DEMO&poll=1", img: "https://picsum.photos/seed/ywt3/600/400" },
-                { label: "Quiz", url: "https://action.youngwomenstrust.org/page/160186/survey/1?mode=DEMO", img: "https://picsum.photos/seed/ywt4/600/400" },
-                { label: "Action Centre", url: "https://action.youngwomenstrust.org/page/150795/subscribe/1?mode=DEMO", img: "https://picsum.photos/seed/ywt5/600/400" }
+                { label: "Invite your MP", url: "https://action.youngwomenstrust.org/page/180421/action/1?mode=DEMO", img: "assets/YWT- Ivite your MP.png" },
+                { label: "Manifesto", url: "https://action.youngwomenstrust.org/page/151072/petition/1?mode=DEMO", img: "assets/YWT- manifesto.png" },
+                { label: "Poll Petition", url: "https://action.youngwomenstrust.org/page/187096/petition/1?mode=DEMO&poll=1", img: "assets/YWT- poll.png" },
+                { label: "Quiz", url: "https://action.youngwomenstrust.org/page/160186/survey/1?mode=DEMO", img: "assets/YWT- quiz.png" },
+                { label: "Action Centre", url: "https://action.youngwomenstrust.org/page/150795/subscribe/1?mode=DEMO", img: "assets/YWT- action centre.png" }
             ]
         },
         {
