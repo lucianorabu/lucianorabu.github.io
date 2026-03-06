@@ -29,7 +29,7 @@ const portfolioData = {
             category: "Advocacy / Campaign",
             links: [
                 { label: "Climate explainer", url: "https://act.unicef.org.uk/page/181518/action/1?mode=DEMO", img: "assets/unicef.png" },
-                { label: "Party conferences", url: "https://act.unicef.org.uk/page/177581/action/1?mode=DEMO", img: "assets/gp-ppp.png" },
+                { label: "Party conferences", url: "https://act.unicef.org.uk/page/177581/action/1?mode=DEMO", img: "assets/unicef-2.png" },
             ]
         },
         {
