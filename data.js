@@ -71,14 +71,44 @@ const portfolioData = {
                 { label: "masM2 (Argentina)", url: "https://www.masm2.com/", img: "assets/masm2.png" },
                 { label: "Pilay Inmobiliaria", url: "https://www.pilayinmobiliaria.com/", img: "assets/pilay.png" },
             ]
+        },{
+        
+            name: "Jerarquicos Salud",
+            category: "Web and internal software development",
+            links: [
+                { label: "Website template development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-web.png" },
+                { label: "Software development (Healthcare IT solutions)", url: "https://jerarquicos.com/", img: "assets/jerarquicos-admin.png" },
+            ]
         },
         {
-            name: "Advocacy",
-            category: "Others",
+            name: "Green New Deal Rising",
+            category: "Advocacy",
             links: [
-                { label: "Green New Deal Rising (old events map)", url: "https://www.gndrising.org/", img: "assets/gndr.png" },
-                { label: "wePlanet", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1", img: "assets/wePlanet.png" },
+                { label: "Part of website development team (events map)", url: "https://www.gndrising.org/", img: "assets/gndr.png" },
             ]
-        }
+        },
+        {
+            name: "CASE EU",
+            category: "Advocacy",
+            links: [
+                { label: "Sheets to map development", url: "https://www.https://www.the-case.eu/get-help/.org/", img: "assets/case-eu-map.png" },
+            ]
+        },
+        {
+            name: "wePlanet",
+            category: "Advocacy",
+            links: [
+                { label: "Movement petition / donation templates", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1", img: "assets/wePlanet.png" },
+            ]
+        },
+        {
+            name: "HDYO - ongoing project",
+            category: "Advocacy",
+            links: [
+                { label: "Wordpress migration and template development", url: "https://staging-wordpress-hdyo-org.codev.uk/", img: "assets/hdyo.png" },
+            ]
+        },
     ]
 };
+
+
