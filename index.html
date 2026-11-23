@@ -74,10 +74,10 @@
                          }"
                          x-init="if (window.matchMedia('(hover: none)').matches) {
                             new IntersectionObserver(([e]) => {
-                                const inView = e.intersectionRatio > 0.98 || e.intersectionRect.height > window.innerHeight * 0.6;
+                                const vh = window.innerHeight; const h = e.intersectionRect.height; const inView = isHoveringCard ? (e.intersectionRatio > 0.8 || h > vh * 0.45) : (e.intersectionRatio > 0.98 || h > vh * 0.6);
                                 if (inView) { isHoveringCard = true; }
                                 else { isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img; }
-                            }, { threshold: [0, 0.25, 0.5, 0.75, 0.9, 0.98, 1] }).observe($el);
+                            }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.98, 1] }).observe($el);
                          }"
                          @mouseenter="isHoveringCard = true"
                          @mouseleave="isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
