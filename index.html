@@ -11,9 +11,9 @@
         body { background-color: #0a0a0a; color: #e5e5e5; overflow-x: hidden; }
         
         .animated-main {
-            background: linear-gradient(-45deg, #1e3a8a, #ff9696, #ffa949, #47d3ff);
+            background: linear-gradient(-35deg, #1e3a8a, #ff9696, #ffa949, #47d3ff);
             background-size: 400% 400%;
-            animation: bauhaus-pulse 20s ease-in-out infinite;
+            animation: bauhaus-pulse 10s ease-in-out infinite;
             position: relative;
         }
 
@@ -39,18 +39,21 @@
         .bau-2 { border-top: 5px solid #facc15; }
         .bau-3 { border-top: 5px solid #ffffff; }
 
-        .link-glitch:hover { text-shadow: 2px 0 #2563eb, -2px 0 #dc2626; }
+        .link-glitch:hover { text-shadow: 3px 0 #2564eb78, -3px 0 #dc262682; }
         .card-transition { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
     </style>
 </head>
-<body class="antialiased font-mono">
+<body class="antialiased font-sans">
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
-        <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between z-50 bg-[#0a0a0a]">
+        <header class="w-full md:w-52 md:fixed md:top-0 md:h-screen h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between md:justify-center z-50 bg-[#0a0a0a]">
+            <div class="logo md:absolute md:top-6 md:left-6">
+                <h1 class="text-5xl font-black tracking-[-13px] leading-none mb-4 text-[#e88a3d]">ROHBU</h1>
+            </div>
             <div>
-                <h1 class="text-3xl font-black tracking-tighter leading-none mb-4 text-white">LUCHO<br>RABU</h1>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-4 font-bold">Software and Web Development</p>
+                <h1 class="text-3xl font-black tracking-[0.1em] leading-none mb-4 text-white">LUCHO RABU</h1>
+                <p class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 mb-4 font-bold">Development<br>Software<br> Web<br>Templates</p>
                 <nav class="space-y-4 text-[12px] tracking-widest font-bold uppercase">
                     <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
@@ -74,8 +77,8 @@
                          :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; transform: translateY(-10px) scale(1.02);' : 'background-color: #121212; color: #e5e5e5;'">
                         
                         <div class="mb-4">
-                            <span class="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block" 
-                                  :class="isHoveringCard ? 'text-red-300' : 'text-red-500'"
+                            <span class="text-[10px] uppercase font-bold mb-2 block" 
+                                  :class="isHoveringCard ? 'text-orange-500' : 'text-orange-300'"
                                   x-text="project.category"></span>
                             
                             <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase leading-none card-transition"
@@ -124,7 +127,7 @@
             </div>
 
             <footer class="mt-20 py-10 text-[8px] tracking-[0.6em] text-white/20 uppercase text-center relative z-10">
-                Lucho Rabu // Studio_2026 // Hybrid_Interaction_Enabled
+                <!-- Lucho Rabu // Studio_2026 // Hybrid_Interaction_Enabled -->
             </footer>
         </main>
     </div>
