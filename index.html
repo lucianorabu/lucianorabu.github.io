@@ -11,7 +11,7 @@
         body { background-color: #0a0a0a; color: #e5e5e5; overflow-x: hidden; }
         
         .animated-main {
-            background: linear-gradient(-45deg, #1e3a8a, #991b1b, #854d0e, #1e40af);
+            background: linear-gradient(-45deg, #1e3a8a, #ff9696, #ffa949, #47d3ff);
             background-size: 400% 400%;
             animation: bauhaus-pulse 20s ease-in-out infinite;
             position: relative;
@@ -50,9 +50,8 @@
         <header class="w-full md:w-52 md:fixed h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between z-50 bg-[#0a0a0a]">
             <div>
                 <h1 class="text-3xl font-black tracking-tighter leading-none mb-1 text-white">LUCHO<br>RABU</h1>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold underline decoration-blue-500 underline-offset-8">Front-end Systems</p>
-                
-                <nav class="space-y-4 text-[10px] tracking-widest font-bold uppercase">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-10 font-bold">Software and Web Development</p>
+                <nav class="space-y-4 text-[12px] tracking-widest font-bold uppercase">
                     <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
                 </nav>
             </div>
@@ -62,7 +61,7 @@
             <div class="masonry-grid" x-data="portfolioData">
                 
                 <template x-for="(project, index) in projects" :key="project.name">
-                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-xl"
+                    <div class="masonry-item p-6 flex flex-col card-transition cursor-crosshair border border-transparent shadow-xl rounded-xl"
                          x-data="{ 
                             activeLink: project.links[0].url,
                             activeImage: project.links[0].img, 
@@ -76,7 +75,7 @@
                         
                         <div class="mb-4">
                             <span class="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block" 
-                                  :class="isHoveringCard ? 'text-neutral-400' : 'text-neutral-600'"
+                                  :class="isHoveringCard ? 'text-red-300' : 'text-red-500'"
                                   x-text="project.category"></span>
                             
                             <h2 class="text-xl font-bold tracking-tighter mb-6 uppercase leading-none card-transition"
