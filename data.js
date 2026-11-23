@@ -18,7 +18,7 @@ const portfolioData = {
         },
         {
             name: "C6 Digital",
-            category: "NGO Web Tools",
+            category: "NGOs Campaigning Tools",
             links: [
                 { label: "Lead Developer", url: "https://c6digital.io/", img: "assets/c6.png" }
             ]
