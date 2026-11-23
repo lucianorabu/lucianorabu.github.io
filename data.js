@@ -45,7 +45,7 @@ const portfolioData = {
                 { label: "Microplastics", url: "https://action.greenpeace.org.uk/microplastics", img: "assets/gp-miocroplastics.png" },
                 { label: "Postcard", url: "https://act.greenpeace.org/page/183797/action/1?mode=DEMO", img: "assets/gp-postcard.png" },
                 { label: "Share Pages", url: "https://act.greenpeace.org/page/164438/data/1?mode=DEMO", img: "assets/gp-share.png" },
-                { label: "Social Storm", url: "https://act.greenpeace.org/page/164284/data/1?mode=DEMO", img: "assets/gp-share.png" },
+                { label: "Social Storm", url: "https://act.greenpeace.org/page/164284/data/1?mode=DEMO", img: "assets/gp-social.png" },
             ]
         },
             {
