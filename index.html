@@ -11,15 +11,15 @@
         body { background-color: #0a0a0a; color: #e5e5e5; overflow-x: hidden; }
         
         .animated-main {
-            background: linear-gradient(-35deg, #1e3a8a, #ff9696, #ffa949, #47d3ff);
-            background-size: 400% 400%;
-            animation: bauhaus-pulse 10s ease-in-out infinite;
+            background: linear-gradient(-35deg, #ff7a00, #ff9a1f, #ffe600, #ff7a00, #00e5ff, #ff7a00);
+            background-size: 250% 250%;
+            animation: bauhaus-pulse 30s ease-in-out infinite;
             position: relative;
         }
 
         .animated-main::before {
             content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4); pointer-events: none; z-index: 0;
+            background: rgba(0, 0, 0, 0.15); pointer-events: none; z-index: 0;
         }
 
         @keyframes bauhaus-pulse {
@@ -49,7 +49,7 @@
         
         <header class="w-full md:w-52 md:fixed md:top-0 md:h-screen h-full border-b md:border-b-0 md:border-r border-neutral-900 p-6 flex flex-col justify-between md:justify-center z-50 bg-[#0a0a0a]">
             <div class="logo md:absolute md:top-6 md:left-6">
-                <h1 class="text-6xl font-black tracking-[-14px] leading-none mb-4 text-[#e88a3d]">RohBũ</h1>
+                <h1 class="text-6xl font-black tracking-[-14px] leading-none mb-4 text-orange-400">RohBũ</h1>
             </div>
             <div>
                 <h1 class="text-3xl font-black tracking-[0.1em] leading-none mb-4 text-white">LUCHO RABU</h1>
@@ -70,6 +70,13 @@
                             activeImage: project.links[0].img, 
                             isHoveringCard: false,
                             isSpecificLinkHovered: false
+                         }"
+                         x-init="if (window.matchMedia('(hover: none)').matches) {
+                            new IntersectionObserver(([e]) => {
+                                const inView = e.intersectionRatio > 0.98 || e.intersectionRect.height > window.innerHeight * 0.6;
+                                if (inView) { isHoveringCard = true; }
+                                else { isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img; }
+                            }, { threshold: [0, 0.25, 0.5, 0.75, 0.9, 0.98, 1] }).observe($el);
                          }"
                          @mouseenter="isHoveringCard = true"
                          @mouseleave="isHoveringCard = false; isSpecificLinkHovered = false; activeLink = project.links[0].url; activeImage = project.links[0].img"
