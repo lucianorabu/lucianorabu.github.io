@@ -2,6 +2,30 @@
 const portfolioData = {
     projects: [
         {
+            name: "HDYO - ongoing project",
+            category: "Advocacy",
+            links: [
+                { label: "Wordpress migration and template development", url: "https://staging-wordpress-hdyo-org.codev.uk/", img: "assets/hdyo.png" },
+            ]
+        },
+        {
+        
+            name: "Jerarquicos Salud",
+            category: "Web and internal software development",
+            links: [
+                { label: "Website template development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-web.png" },
+                { label: "Software development (Healthcare IT solutions)", url: "https://jerarquicos.com/", img: "assets/jerarquicos-admin.png" },
+            ]
+        },
+        {
+            name: "Real Estate",
+            category: "Commercial",
+            links: [
+                { label: "masM2 (Argentina)", url: "https://www.masm2.com/", img: "assets/masm2.png" },
+                { label: "Pilay Inmobiliaria", url: "https://www.pilayinmobiliaria.com/", img: "assets/pilay.png" },
+            ]
+        },
+        {
             name: "Young Women's Trust",
             category: "Advocacy",
             links: [
@@ -65,22 +89,6 @@ const portfolioData = {
             ]
         },
         {
-            name: "Real Estate",
-            category: "Commercial",
-            links: [
-                { label: "masM2 (Argentina)", url: "https://www.masm2.com/", img: "assets/masm2.png" },
-                { label: "Pilay Inmobiliaria", url: "https://www.pilayinmobiliaria.com/", img: "assets/pilay.png" },
-            ]
-        },{
-        
-            name: "Jerarquicos Salud",
-            category: "Web and internal software development",
-            links: [
-                { label: "Website template development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-web.png" },
-                { label: "Software development (Healthcare IT solutions)", url: "https://jerarquicos.com/", img: "assets/jerarquicos-admin.png" },
-            ]
-        },
-        {
             name: "Green New Deal Rising",
             category: "Advocacy",
             links: [
@@ -100,14 +108,8 @@ const portfolioData = {
             links: [
                 { label: "Movement petition / donation templates", url: "https://act.weplanet.org/p/msc-zur-rechenschaft-ziehen?forget=1", img: "assets/wePlanet.png" },
             ]
-        },
-        {
-            name: "HDYO - ongoing project",
-            category: "Advocacy",
-            links: [
-                { label: "Wordpress migration and template development", url: "https://staging-wordpress-hdyo-org.codev.uk/", img: "assets/hdyo.png" },
-            ]
-        },
+        }
+
     ]
 };
 
