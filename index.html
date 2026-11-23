@@ -32,6 +32,7 @@
         @media (min-width: 560px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         @media (min-width: 1440px) { .masonry-grid { column-count: 4; } }
+         /* @media (min-width: 2000px) { .masonry-grid { column-count: 5; } } */
 
         .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
         .bau-0 { border-top: 5px solid #2563eb; }
@@ -53,9 +54,9 @@
             </div>
             <div>
                 <h1 class="text-3xl font-black tracking-[0.1em] leading-none mb-4 text-white">LUCHO RABU</h1>
-                <p class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 mb-4 font-bold"><span class="md:block">Development</span> <span class="md:block">Software</span> <span class="md:block">Web</span> <span class="md:block">Templates</span></p>
+                <p class="text-[11px] uppercase tracking-[0.1em] text-orange-400 mb-4 font-bold"><span class="md:block">Development</span> <span class="md:block">Software</span> <span class="md:block">Web</span> <span class="md:block">Templates</span></p>
                 <nav class="md:absolute md:bottom-6 md:left-6 space-y-4 text-[12px] tracking-widest font-bold uppercase">
-                    <a href="mailto:luciano.rabu@gmail.com" class="block hover:text-white transition-colors text-neutral-400 border-b border-transparent hover:border-red-500 w-fit">CONTACT</a>
+                    <a href="mailto:luciano.rabu@gmail.com" class="block transition-colors text-white border-b border-transparent hover:border-orange-400 w-fit">CONTACT</a>
                 </nav>
             </div>
         </header>
@@ -84,7 +85,7 @@
                          :style="isHoveringCard ? 'background-color: #ffffff; color: #111111; transform: translateY(-10px) scale(1.02);' : 'background-color: #121212; color: #e5e5e5;'">
                         
                         <div class="mb-4">
-                            <span class="text-[10px] uppercase font-bold mb-2 block" 
+                            <span class="text-[11px] uppercase font-bold mb-2 block" 
                                   :class="isHoveringCard ? 'text-orange-500' : 'text-orange-300'"
                                   x-text="project.category"></span>
                             
@@ -92,7 +93,7 @@
                                 :class="isHoveringCard ? 'text-black' : 'text-white'"
                                 x-text="project.name"></h2>
                             
-                            <ul class="space-y-3">
+                            <ul class="space-y-1">
                                 <template x-for="link in project.links" :key="link.url">
                                     <li>
                                         <a :href="link.url" 
@@ -100,7 +101,7 @@
                                            @click="if ($event.pointerType === 'touch') { $event.preventDefault(); activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true; isHoveringCard = true; }"
                                            @mouseenter="activeImage = link.img; activeLink = link.url; isSpecificLinkHovered = true"
                                            @mouseleave="isSpecificLinkHovered = false"
-                                           class="flex items-center tracking-tight transition-all group link-glitch font-medium text-xs"
+                                           class="flex items-center tracking-tight transition-all group link-glitch font-medium text-[14px]"
                                            :class="activeLink === link.url && isHoveringCard ? 'text-black translate-x-2' : (isHoveringCard ? 'text-neutral-400' : 'text-neutral-400')">
                                             
                                             <span class="mr-2 font-bold transition-colors"
