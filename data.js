@@ -9,12 +9,26 @@ const portfolioData = {
             ]
         },
         {
-        
-            name: "Jerarquicos Salud",
-            category: "Web and internal software development",
+            name: "Christie's",
+            category: "Auctions",
             links: [
-                { label: "Website template development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-web.png" },
-                { label: "Software development (Healthcare IT solutions)", url: "https://jerarquicos.com/", img: "assets/jerarquicos-admin.png" },
+                { label: "Online Auction List", url: "https://onlineonly.christies.com/s/modern-collector/lots/3874", img: "assets/chr-list.png" },
+                { label: "Online Auction", url: "https://onlineonly.christies.com/s/modern-collector/tiffany-studios-1/289049", img: "assets/chr-item.png" },
+            ]
+        },
+        {
+            name: "C6 Digital",
+            category: "NGO Web Tools",
+            links: [
+                { label: "Lead Developer", url: "https://c6digital.io/", img: "assets/c6.png" }
+            ]
+        },
+        {
+            name: "Jerarquicos Salud",
+            category: "Healthcare IT solutions",
+            links: [
+                { label: "Wordpress website template development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-web.png" },
+                { label: "Software development", url: "https://jerarquicos.com/", img: "assets/jerarquicos-admin.png" },
             ]
         },
         {
@@ -64,14 +78,7 @@ const portfolioData = {
                 { label: "Donation (UK)", url: "https://donate.clientearth.org/page/113697/donate/1?locale=en-GB", img: "assets/CE-donation-uk.png" }
             ]
         },
-        {
-            name: "Christie's",
-            category: "Auctions",
-            links: [
-                { label: "Online Auction List", url: "https://onlineonly.christies.com/s/modern-collector/lots/3874", img: "assets/chr-list.png" },
-                { label: "Online Auction", url: "https://onlineonly.christies.com/s/modern-collector/tiffany-studios-1/289049", img: "assets/chr-item.png" },
-            ]
-        },
+
         {
             name: "Guide Dogs UK",
             category: "Advocacy",
