@@ -99,7 +99,7 @@ const portfolioData = {
             name: "CASE EU",
             category: "Advocacy",
             links: [
-                { label: "Sheets to map development", url: "https://www.https://www.the-case.eu/get-help/.org/", img: "assets/case-eu-map.png" },
+                { label: "Sheets to map development", url: "https://www.the-case.eu/get-help/", img: "assets/case-eu-map.png" },
             ]
         },
         {
